@@ -1,0 +1,18 @@
+{
+    "name": "msng/laravel-dry-helper",
+    "description": "Don't repeat yourself with Laravel.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "msng",
+            "email": "29099+msng@users.noreply.github.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "msng\\LaravelDryHelper\\": "src"
+        }
+    }
+}
