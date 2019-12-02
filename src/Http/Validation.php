@@ -2,7 +2,7 @@
 
 namespace msng\LaravelDryHelper\Http;
 
-class ValidationRule
+class Validation
 {
     const ACCEPTED = 'accepted';
     const ACTIVE_URL = 'active_url';
@@ -11,7 +11,7 @@ class ValidationRule
     const ALPHA = 'alpha';
     const ALPHA_DASH = 'alpha_dash';
     const ALPHA_NUM = 'alpha_num';
-    const RULE_ARRAY = 'array';
+    const ARRAY = 'array';
     const BAIL = 'bail';
     const BEFORE = 'before';
     const BEFORE_OR_EQUAL = 'before_or_equal';
@@ -74,7 +74,7 @@ class ValidationRule
      */
     public static function regex(string $pattern): string
     {
-        return vsprintf('%s:%s', [static::REGEX, $pattern]);
+        return static::colon(static::REGEX, $pattern);
     }
 
     /**
@@ -83,6 +83,43 @@ class ValidationRule
      */
     public static function notRegex(string $pattern): string
     {
-        return vsprintf('%s:%s', [static::NOT_REGEX, $pattern]);
+        return static::colon(static::NOT_REGEX, $pattern);
+    }
+
+    /**
+     * @param $value
+     * @return string
+     */
+    public static function min($value): string
+    {
+        return static::colon(static::MIN, $value);
+    }
+
+    /**
+     * @param $value
+     * @return string
+     */
+    public static function max($value): string
+    {
+        return static::colon(static::MAX, $value);
+    }
+
+    /**
+     * @param $value
+     * @return string
+     */
+    public static function size($value): string
+    {
+        return static::colon(static::SIZE, $value);
+    }
+
+    /**
+     * @param string $rule
+     * @param $value
+     * @return string
+     */
+    protected static function colon(string $rule, $value): string
+    {
+        return vsprintf('%s:%s', [$rule, $value]);
     }
 }

@@ -14,5 +14,13 @@
         "psr-4": {
             "msng\\LaravelDryHelper\\": "src"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "msng\\LaravelDryHelper\\Tests\\": "tests"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.4"
     }
 }
